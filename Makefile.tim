@@ -1,0 +1,39 @@
+all: \
+	iso/menu/menu.arc \
+	iso/menu/loading.tim \
+	iso/font/font1.tim \
+	iso/stage/hud0.tim \
+	iso/stage/hud1.tim \
+	iso/stage/hud2.tim \
+	iso/bf/main.arc \
+	iso/dad/main.arc \
+	iso/gf.hx/main.arc \
+	iso/gf/main.arc \
+	iso/gf/tut.arc \
+	iso/gf/speaker.tim \
+	iso/unknown/back.arc \
+
+iso/%.tim: iso/%.png
+	tools/funkintimconv/funkintimconv $@ $<
+
+iso/%.arc:
+	tools/funkinarcpak/funkinarcpak $@ $^
+
+# Menu
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+
+# BF
+iso/bf/main.arc: iso/bf/bf0.tim iso/bf/bf1.tim iso/bf/bf2.tim iso/bf/bf3.tim iso/bf/bf4.tim iso/bf/bf5.tim iso/bf/bf6.tim iso/bf/dead0.tim iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
+
+# GF.HX
+iso/gf.hx/main.arc: iso/gf.hx/idle0.tim iso/gf.hx/idle1.tim iso/gf.hx/idle2.tim iso/gf.hx/idle3.tim iso/gf.hx/left0.tim iso/gf.hx/left1.tim iso/gf.hx/left2.tim iso/gf.hx/down0.tim iso/gf.hx/down1.tim iso/gf.hx/down2.tim iso/gf.hx/down3.tim iso/gf.hx/down4.tim iso/gf.hx/down5.tim iso/gf.hx/up0.tim iso/gf.hx/up1.tim iso/gf.hx/up2.tim iso/gf.hx/right0.tim iso/gf.hx/right1.tim iso/gf.hx/right2.tim iso/gf.hx/scare0.tim iso/gf.hx/scare1.tim iso/gf.hx/left0b.tim iso/gf.hx/left1b.tim iso/gf.hx/left2b.tim iso/gf.hx/left3b.tim iso/gf.hx/down0b.tim iso/gf.hx/down1b.tim iso/gf.hx/down2b.tim iso/gf.hx/down3b.tim iso/gf.hx/down5.tim iso/gf.hx/up0b.tim iso/gf.hx/up1b.tim iso/gf.hx/up2b.tim iso/gf.hx/up3b.tim iso/gf.hx/right0b.tim iso/gf.hx/right1b.tim iso/gf.hx/right2b.tim iso/gf.hx/right3b.tim
+
+# Dad
+iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/down.tim iso/dad/up.tim iso/dad/right.tim
+
+# GF
+iso/gf/main.arc: iso/gf/gf0.tim iso/gf/gf1.tim iso/gf/gf2.tim iso/gf/gf3.tim
+iso/gf/tut.arc: iso/gf/tut0.tim iso/gf/tut1.tim
+
+# Unknown
+iso/unknown/back.arc: iso/unknown/error.tim
